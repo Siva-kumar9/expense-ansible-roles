@@ -30,7 +30,7 @@
     path: /app
 - name: copy backendservice
   ansible.builtin.template: 
-    src:  backend.service
+    src:  backend.service.j2
     dest: /etc/systemd/system/backend.service
 - name: Install packages
   ansible.builtin.pip:
