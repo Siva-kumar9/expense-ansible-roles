@@ -14,7 +14,7 @@
 - name: Connect to sql-server
   community.mysql.mysql_info:
     login_user: root
-    login_password: mysql_root_pw
+    login_password: "{{ mysql_root_pw }}"
     login_host: "172.31.27.46"
     register: "mysql_info"
     ignore_errors: true
@@ -22,5 +22,5 @@
   ansible.builtin.debug:
     msg:  "{{ mysql_info }}"
 - name: set login_password
-  ansible.builtin.command:  mysql_secure_installation --set-root-pass mysql_root_pw
+  ansible.builtin.command:  mysql_secure_installation --set-root-pass {{ mysql_root_pw }}
   when: mysql_info.failed is true
