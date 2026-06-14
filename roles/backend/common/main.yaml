@@ -6,7 +6,7 @@
 - name: Remove Directory
   ansible.builtin.file:
     path: "{{ APP_LOC }}"
-    state:  present
+    state:  directory
 
 - name: Download url
   ansible.builtin.unarchive:
